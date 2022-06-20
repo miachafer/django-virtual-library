@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Classic Library - Login</title>
+    <title>Library</title>
     <meta charset="utf-8">
   </head>
   <body>
+    <h1>Login</h1>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="username" name="username"><br>
+      <input type="password" placeholder="********" name="password"><br>
+      <input type="submit" value="Login">
+    </form>
   </body>
 </html>
