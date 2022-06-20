@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as do_login
 from django.http import HttpResponse
+from .models import Book
 
 def home(request):
     return render(request, 'books/home.html')
@@ -45,8 +46,15 @@ def login(request):
             return render(request, 'books/login.html', context)
 
 def books(request):
+    list_of_books = Book.objects.all()
+    context = {
+        "books": list_of_books
+        }
+    return render(request, "books/books.html", context)
+
+def books_register(request):
     if request.method == "GET":
-        return render(request, "books/books.html")
+        return render(request, "books/books_register.html")
     else:
         book_name = request.POST.get("book_name")
         author_name = request.POST.get("author_name")
@@ -57,11 +65,11 @@ def books(request):
             context = {
                 "message": "This book is already registered."
             }
-            return render (request, 'books/books.html', context)
+            return render (request, "books/books_register.html", context)
         else: 
             book = Book.objects.create(name=book_name, author=author_name, release_date=release_date, synopsis=book_synopsis)
             book.save()
             context = {
                 "message": f"The book {book_name} was registered successfully."
             }
-            return render(request, "books/books.html", context)
+            return render (request, "books/books_register.html", context)
