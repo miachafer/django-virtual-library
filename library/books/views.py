@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as do_login
@@ -37,9 +37,12 @@ def login(request):
         user = authenticate(username=username, password=password)
         if(user):
             do_login(request, user)
-            return HttpResponse("User authenticated successfully!")
+            return redirect("books")
         else:
             context = {
                 "message": "Wrong username or password. Try again."
             }
             return render(request, 'books/login.html', context)
+
+def books(request):
+    return render(request, "books/books.html")
