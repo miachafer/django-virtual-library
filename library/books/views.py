@@ -45,4 +45,23 @@ def login(request):
             return render(request, 'books/login.html', context)
 
 def books(request):
-    return render(request, "books/books.html")
+    if request.method == "GET":
+        return render(request, "books/books.html")
+    else:
+        book_name = request.POST.get("book_name")
+        author_name = request.POST.get("author_name")
+        release_date = request.POST.get("release_date")
+        book_synopsis = request.POST.get("book_synopsis")
+        book = Book.objects.filter(name=book_name).first()
+        if book:
+            context = {
+                "message": "This book is already registered."
+            }
+            return render (request, 'books/books.html', context)
+        else: 
+            book = Book.objects.create(name=book_name, author=author_name, release_date=release_date, synopsis=book_synopsis)
+            book.save()
+            context = {
+                "message": f"The book {book_name} was registered successfully."
+            }
+            return render(request, "books/books.html", context)
