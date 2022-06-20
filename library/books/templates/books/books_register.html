@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Library</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Register a new book</h1>
+    <form action="{% url 'books_register' %}" method="POST">
+      {% csrf_token %}
+      <p>Book's name:</p>
+      <input type="text" placeholder="Book's name" name="book_name"><br>
+      <p>Author:</p>
+      <input type="text" placeholder="Author" name="author_name"><br>
+      <p>Release date:</p>
+      <input type="date" name="release_date"><br>
+      <p>Synopsis:</p>
+      <input type="text" name="book_synopsis"><br>
+      <input type="submit" value="Register book">
+    </form>
+    {% if message %}
+      {{ message }}
+    {% endif %} 
+  </body>
+</html>
