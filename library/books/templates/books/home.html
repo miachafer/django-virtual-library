@@ -8,5 +8,8 @@
     <h1>Home</h1>
     <a href="{% url 'login' %}">Login</a>
     <a href="{% url 'register' %}">Register</a>
+    {% if user.is_authenticated %}
+    <p>Hi, {{ user.username }}! Go to <a href="{% url 'books' %}">Books<a>
+    {% endif %}
   </body>
 </html>
