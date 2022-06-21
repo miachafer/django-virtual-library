@@ -5,6 +5,12 @@
     <meta charset="utf-8">
   </head>
   <body>
+    {% if user.is_authenticated %}
+      <p>Hi, {{ user.username }}!</p>
+      <form action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    {% endif %}
     <h1>Books</h1>
     {% if books %}
       {% for book in books %}

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.contrib.auth import login as do_login
+from django.contrib.auth import login as login_user
+from django.contrib.auth import logout as logout_user
 from django.http import HttpResponse
 from .models import Book
 
@@ -37,13 +38,17 @@ def login(request):
         password = request.POST.get("password")
         user = authenticate(username=username, password=password)
         if(user):
-            do_login(request, user)
+            login_user(request, user)
             return redirect("books")
         else:
             context = {
                 "message": "Wrong username or password. Try again."
             }
             return render(request, 'books/login.html', context)
+        
+def logout(request):
+    logout_user(request)
+    return redirect('home')
 
 def books(request):
     list_of_books = Book.objects.all()
