@@ -6,14 +6,26 @@
   </head>
   <body>
     <h1>Login</h1>
+    {% if user.is_authenticated %}
+    <p>Hi, {{ user.username }}! You're already logged in. Go to <a href="{% url 'books' %}">Books<a>
+      <p><a href="{% url 'books' %}">Back to Books</a></p>
+      <p><a href="{% url 'home' %}">Back to Home<a></p>
+      <form action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+      </form>
+    {% else %}
     <form action="{% url 'login' %}" method="POST">
       {% csrf_token %}
       <input type="text" placeholder="username" name="username"><br>
       <input type="password" placeholder="********" name="password"><br>
       <input type="submit" value="Login">
     </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    <p><a href="{% url 'home' %}">Back to Home<a></p>
     {% if message %}
       {{ message }}
+    {% endif %}
     {% endif %}
   </body>
 </html>

@@ -6,10 +6,10 @@
   </head>
   <body>
     <h1>Home</h1>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
+    <p><a href="{% url 'login' %}">Login</a> to get ideas for your next reading session!</p>
+    <p><a href="{% url 'register' %}">Register</a> to access our list of books.</p>
     {% if user.is_authenticated %}
-    <p>Hi, {{ user.username }}! Go to <a href="{% url 'books' %}">Books<a>
+    <p>Hi, {{ user.username }}! Go to <a href="{% url 'books' %}">Books<a>.</p>
     {% endif %}
   </body>
 </html>

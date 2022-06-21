@@ -5,6 +5,14 @@
     <meta charset="utf-8">
   </head>
   <body>
+    {% if user.is_authenticated %}
+      <p>Hi, {{ user.username }}!</p>
+      <form action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+      </form>
+      <p><a href="{% url 'books' %}">Back to Books</a></p>
+      <p><a href="{% url 'home' %}">Back to Home<a></p>
     <h1>Register a new book</h1>
     <form action="{% url 'books_register' %}" method="POST">
       {% csrf_token %}
@@ -21,5 +29,11 @@
     {% if message %}
       {{ message }}
     {% endif %} 
+    {% else %}
+    <p></p>You have to be logged in to register a new book!</p>
+    <hr>
+    <p>Go to <a href="{% url 'login' %}">login page<a></p>
+    <p><a href="{% url 'home' %}">Back to Home<a></p>
+    {% endif %}
   </body>
 </html>

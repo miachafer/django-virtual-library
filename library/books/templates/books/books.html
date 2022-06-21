@@ -10,7 +10,9 @@
       <form action="{% url 'logout' %}">
         {% csrf_token %}
         <input type="submit" value="Logout">
-    {% endif %}
+      </form>
+      <p><a href="{% url 'home' %}">Back to Home<a></p>
+      <a href="{% url 'books_register' %}">Register a book!</a>
     <h1>Books</h1>
     {% if books %}
       {% for book in books %}
@@ -20,8 +22,13 @@
         <p>Synopsis: {{ book.synopsis }} </p>
       {% endfor %}
     {% else %}
-    <p>There's no book to show</p>
+    <p>There's no book to show.</p>
     {% endif %}
-    <a href="{% url 'books_register' %}">Register a book!</a>
+    {% else %}
+    <p></p>You have to be logged in to access our list of books!</p>
+    <hr>
+    <p>Go to <a href="{% url 'login' %}">login page<a></p>
+    {% endif %}
+
   </body>
 </html>
