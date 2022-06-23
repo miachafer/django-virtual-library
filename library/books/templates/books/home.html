@@ -1,15 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <title>Library</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link href="{% static 'books/style.css' %}" rel="stylesheet" />
   </head>
   <body>
-    <h1>Home</h1>
-    <p><a href="{% url 'login' %}">Login</a> to get ideas for your next reading session!</p>
-    <p><a href="{% url 'register' %}">Register</a> to access our list of books.</p>
-    {% if user.is_authenticated %}
+    <div class="outer-container">
+      <div class="inner-container">
+        <div>
+          <h1>YourLibrary</h1>
+        </div>
+        {% if user.is_authenticated %}
+          <div>
+            <h6>Welcome, <span style="color:#EC994B">{{ user.username }}</span></h6>
+          </div>
+          <div>
+            <a href="{% url 'books' %}">
+            <button class="login-button">Books</button></a>
+          </div>
+          <div>
+            <a href="{% url 'logout' %}">
+              <button class="register-button">Logout</button>
+            </a>  
+          </div>
+        {% else %}
+        <div>
+          <h6>Get new ideas for your next reading session.</h6>
+        </div>
+        <div>
+          <a href="{% url 'login' %}">
+            <button class="login-button">Login</button>
+          </a>
+        </div>
+        <div>
+            <a href="{% url 'register' %}">
+                <button class="register-button">Register</button>
+            </a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% comment %} <p><a href="{% url 'login' %}">Login</a> to get ideas for your next reading session!</p>
+    <p><a href="{% url 'register' %}">Register</a> to access our list of books.</p> {% endcomment %}
+    {% comment %} {% if user.is_authenticated %}
     <p>Hi, {{ user.username }}! Go to <a href="{% url 'books' %}">Books<a>.</p>
-    {% endif %}
+    {% endif %} {% endcomment %}
   </body>
 </html>
