@@ -1,0 +1,36 @@
+html, body {
+    background-color: #F1EEE9;
+    margin:0px;
+    height: 100%;
+}
+
+.outer-container {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+.inner-container {
+    text-align:center;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.login-button {
+    margin: 15px 15px;
+    width: 100px;
+    height: 35px;
+    background: #EC994B;
+    border: 3px solid #15133C;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.register-button {
+    width: 100px;
+    height: 35px;
+    background: #F1EEE9;
+    border: 3px solid #15133C;
+    border-radius: 10px;
+    font-weight: 600;
+}
