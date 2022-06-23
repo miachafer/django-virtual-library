@@ -34,3 +34,25 @@ html, body {
     border-radius: 10px;
     font-weight: 600;
 }
+
+.input-mail {
+    text-align:left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-label {
+    margin: 0 0 3px 3px; 
+    font-size: 14px; 
+    font-weight: 500;
+}
+
+.form-control {
+    border:3px solid #15133C;
+    background: #F1EEE9;
+}
+
+.nonbt-form {
+    width: 200px;
+    margin: 0 auto;
+}
