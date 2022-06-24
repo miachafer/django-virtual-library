@@ -1,0 +1,187 @@
+html, body {
+    background-color: #F1EEE9;
+    margin:0px;
+    height: 100%;
+}
+
+.outer-container {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+.inner-container {
+    text-align:center;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.login-button {
+    margin: 15px 15px;
+    width: 100px;
+    height: 35px;
+    background: #EC994B;
+    border: 3px solid #15133C;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.register-button {
+    width: 100px;
+    height: 35px;
+    background: #F1EEE9;
+    border: 3px solid #15133C;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.input-mail {
+    text-align:left;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-label {
+    margin: 0 0 3px 3px; 
+    font-size: 14px; 
+    font-weight: 500;
+}
+
+.form-control {
+    border:3px solid #15133C;
+    background: #F1EEE9;
+}
+
+.nonbt-form {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.top {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content:space-between;
+
+}
+
+.hello-user {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.button-register-book {
+    padding-top: 10px;
+    align-items: center;
+}
+
+.inner-container-books{
+    text-align:center;
+    display:table-cell;
+    vertical-align: text-top;
+    padding-top: 60px;
+}
+
+.books-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: auto;
+    /* margin-bottom: 40px; */
+}
+
+.card {
+    border-radius: 15px;
+    margin-bottom: 20px;
+    width: 50%; 
+    align-self: center;
+}
+
+.card-body {
+    text-align: left;
+}
+
+h3 {
+    color:#EC994B;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+h5 {
+    color:#15133C;
+    font-weight: 400;
+}
+
+.info {
+    color: #15133C;
+    font-weight: 500;
+}
+
+.paragraph {
+    margin-bottom: 5px;
+}
+
+.top-register-book {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.form-register-book {
+    text-align: left;
+}
+
+.register-book-label {
+    font-size:15px; 
+    padding-top: 5px;
+}
+
+@media (max-width: 1000px) {
+    .top-register-book {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .login-button {
+        width: fit-content;
+        padding: fit-content;
+    }
+
+    .card {
+        border-radius: 15px;
+        margin-bottom: 20px;
+        width: 80%; 
+        align-self: center;
+    }
+
+    .top {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        justify-content:space-between;
+    }
+    
+    .hello-user {
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .button-register-book {
+        padding-top: 10px;
+    }
+
+    .login-button {
+        height: fit-content;
+    }
+
+    h4 {
+        text-align: left;
+    }
+}
