@@ -10,10 +10,10 @@
 
 ## URLs
 - `home/`
-- `home/login`
-- `home/register`
-- `home/books`
-- `home/books/register-a-book`
+- `home/login/`
+- `home/register/`
+- `home/books/`
+- `home/books/register-a-book/`
 
 ## Books
 |                  Name                   |         Author         | Release date |
@@ -30,13 +30,13 @@
 ## To do
 - [ ] Add docker file
 - [ ] Pagination
-- [ ] Delete book method
-- [ ] Edit book method
+- [ ] Add *delete book* method
+- [ ] Add *edit book* method
 - [ ] Book detail page
-- [ ] Book added by user parameter
-- [ ] Book original language parameter
-- [ ] Book updated in parameter
-- [ ] Option to book's release date or release year
+- [ ] Add book *added by* parameter
+- [ ] Add book *original language* parameter
+- [ ] Add book *updated in* parameter
+- [ ] Add choice between book's release date or release year
 - [ ] Refactor to generic views
 - [ ] Refactor auth methods
 - [ ] Add tests
@@ -44,4 +44,4 @@
 - [ ] Deploy
 
 ## Further improvements
-- Public registered books page
+- Registered books public page
