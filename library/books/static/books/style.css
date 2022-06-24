@@ -26,6 +26,16 @@ html, body {
     font-weight: 600;
 }
 
+#register-book {
+    margin: 15px 15px;
+    width: 100px;
+    height: 35px;
+    background: #EC994B;
+    border: 3px solid #15133C;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
 .register-button {
     width: 100px;
     height: 35px;
@@ -147,10 +157,10 @@ h5 {
         margin: 0 auto;
     }
 
-    .login-button {
+    /* .login-button {
         width: fit-content;
         padding: fit-content;
-    }
+    } */
 
     .card {
         border-radius: 15px;
@@ -177,11 +187,12 @@ h5 {
         padding-top: 10px;
     }
 
-    .login-button {
+    #register-book {
         height: fit-content;
     }
 
     h4 {
         text-align: left;
     }
+
 }

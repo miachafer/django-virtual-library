@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link href="{% static 'books/style.css' %}" rel="stylesheet" />
-    <title>YourLibrary - Books</title>
+    <title>YourLibrary - Register a book</title>
   </head>
   <body>
     <div class="outer-container">
@@ -25,7 +25,7 @@
             <a
               class="navbar-brand"
               style="color: #ec994b; font-weight: 600"
-              href="./home.html"
+              href="{% url 'home' %}"
               >YourLibrary</a
             >
             {% if user.is_authenticated %}
@@ -57,24 +57,27 @@
               {% csrf_token %}
               <div class="form-register-book">
                 <label class="form-label register-book-label">Book's title</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="book_name"/>
               </div>
               <div class="form-register-book">
                 <label class="form-label register-book-label">Author</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="author_name"/>
               </div>
               <div class="form-register-book">
                 <label class="form-label register-book-label">Release date</label>
-                <input type="date" class="form-control" />
+                <input type="date" class="form-control" name="release_date"/>
               </div>
               <div class="form-register-book">
-                <label class="form-label register-book-label">Synopsis</label>
-                <textarea class="form-control" rows="5"></textarea>
+                <label class="form-label register-book-label" >Synopsis</label>
+                <textarea class="form-control" rows="5" name="book_synopsis"></textarea>
               </div>
               <div>
-                  <button class="login-button" style="width: 200px; ">Register</button>
+                  <input type="submit" class="login-button" style="width: 200px;" value="Register">
               </div>
             </form>
+            {% if message %}
+              <p style="font-weight: 500;">{{ message }}</p>
+            {% endif %}
           </div>
         </div> 
         {% else %}

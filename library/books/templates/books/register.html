@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>YourLibrary</title>
     <meta charset="utf-8">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,6 +13,7 @@
       crossorigin="anonymous"
     />
     <link href="{% static 'books/style.css' %}" rel="stylesheet" />
+    <title>YourLibrary - Register</title>
   </head>
   <body>
     <div class="outer-container">
@@ -65,16 +68,16 @@
             </div>
             {% csrf_token %}
             <div class="input-mail">
-              <label class="form-label">Username</label>
-              <input type="text" class="form-control" placeholder="johndoe" name="username"></input>
+              <label class="form-label">Username*</label>
+              <input type="text" class="form-control" placeholder="johndoe" name="username" required></input>
             </div>
             <div class="input-mail">
-              <label class="form-label">E-mail address</label>
-              <input type="email" class="form-control" placeholder="johndoe@email.com" name="user_email"></input>
+              <label class="form-label">E-mail address*</label>
+              <input type="email" class="form-control" placeholder="johndoe@email.com" name="user_email" required></input>
             </div>
               <div class="input-mail">
-              <label class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="johndoe@email.com" name="password"></input>
+              <label class="form-label">Password*</label>
+              <input type="password" class="form-control" placeholder="johndoe@email.com" name="password" required></input>
             </div>
           </div>
           <div>
@@ -87,29 +90,5 @@
         <p>Already have an account? <a href="{% url 'login' %}" style="color:#EC994B; text-decoration: none;">Login</a></p>
       </div>
       {% endif %}
-      
-    {% comment %} <h1>Register</h1>
-    {% if user.is_authenticated %}
-    <p>Hi, {{ user.username }}! You're already registered and logged in. Go to <a href="{% url 'books' %}">Books<a></p>
-      <p><a href="{% url 'books' %}">Back to Books</a></p>
-      <p><a href="{% url 'home' %}">Back to Home<a></p>
-      <form action="{% url 'logout' %}">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-      </form>
-    {% else %}
-    <form action="{% url 'register' %}" method="POST">
-      {% csrf_token %}
-      <input type="text" placeholder="username" name="username"><br>
-      <input type="email" placeholder="username@email.com" name="user_email"><br>
-      <input type="password" placeholder="********" name="password"><br>
-      <input type="submit" value="Register">
-    </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-    <p><a href="{% url 'home' %}">Back to Home<a></p>
-    {% if message %}
-      {{ message }}
-    {% endif %}
-    {% endif %} {% endcomment %}
   </body>
 </html>
