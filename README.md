@@ -28,6 +28,7 @@
 |           The Grapes of Wrath           |     John Steinbeck     |  14/04/1939  |
 
 ## To do
+- [ ] Add footer
 - [ ] Add requirements file
 - [ ] Add docker file
 - [ ] Pagination
