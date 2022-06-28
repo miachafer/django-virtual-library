@@ -1,6 +1,6 @@
 # Construdelas Django Challenge
 
-## Minimal requirements
+## Minimum requirements
 1. User register form
 2. Book register form
 3. User login form
@@ -30,6 +30,8 @@
 ## To do
 - [ ] Add docker file
 - [ ] Pagination
+- [ ] Refactor templates
+- [ ] Add documentation
 - [ ] Add *delete book* method
 - [ ] Add *edit book* method
 - [ ] Book detail page
